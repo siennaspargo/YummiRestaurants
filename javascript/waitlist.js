@@ -6,4 +6,4 @@ var waitlist = [
     uniqueID: 2000
   },
 ];
-module.export(waitlist);
+module.exports = waitlist;

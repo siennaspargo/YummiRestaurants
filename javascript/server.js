@@ -1,7 +1,6 @@
 // Dependencies
 // =============================================================
 var express = require("express");
-var bodyParser = require("body-parser");
 var path = require("path");
 
 // Sets up the Express App
@@ -10,8 +9,8 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 // =============================================================
@@ -57,7 +56,7 @@ app.post("/api/waitlist", function(req, res) {
 
   // Using a RegEx Pattern to remove spaces from newCharacter
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-  newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  newcharacter.name = newcharacter.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newcharacter);
 

@@ -1,7 +1,7 @@
 module.exports = function (app) {
 
     // api route to friends object
-    app.get("/api/friends", function (req, res) {
+    app.get("/api/waitlist", function (req, res) {
         res.json(friendsdata);
     });
 

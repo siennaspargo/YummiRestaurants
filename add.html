@@ -62,19 +62,21 @@
     </div>
   </div>
 
+  <a href="/api/waitlist">API Rez List</a> 
+
   <script type="text/javascript">
     // Question: What does this code do?
     $("#add-btn").on("click", function(event) {
       event.preventDefault();
       var newCharacter = {
         name: $("#name").val().trim(),
-        role: $("#phonenumber").val().trim(),
+        phonenumber: $("#phonenumber").val().trim(),
         age: $("#email").val().trim(),
         uniqueID: $("#uniqueID").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/characters", newCharacter)
+      $.post("/api/waitlist", newCharacter)
         .then(function(data) {
           console.log("add.html", data);
           alert("Saving table...");
