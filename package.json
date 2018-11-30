@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/siennaspargo/YummiRestaurants/issues"
   },
-  "homepage": "https://github.com/siennaspargo/YummiRestaurants#readme"
+  "homepage": "https://github.com/siennaspargo/YummiRestaurants#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }

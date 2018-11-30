@@ -13,24 +13,12 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Star Wars Characters (DATA)
-// =============================================================
-var characters = [
-  {
-    routeName: "yoda",
-    name: "Yoda",
-    role: "Jedi Master",
-    age: 900,
-    forcePoints: 2000
-  },
-];
-
 // Routes
 // =============================================================
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "view.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/add", function(req, res) {
@@ -38,12 +26,16 @@ app.get("/add", function(req, res) {
 });
 
 // Displays all characters
-app.get("/api/characters", function(req, res) {
+app.get("/api/waitlist", function(req, res) {
+  return res.json(characters);
+});
+
+app.get("/api/reservations", function(req, res) {
   return res.json(characters);
 });
 
 // Displays a single character, or returns false
-app.get("/api/characters/:character", function(req, res) {
+app.get("/api/waitlist/:character", function(req, res) {
   var chosen = req.params.character;
 
   console.log(chosen);
@@ -58,7 +50,7 @@ app.get("/api/characters/:character", function(req, res) {
 });
 
 // Create New Characters - takes in JSON input
-app.post("/api/characters", function(req, res) {
+app.post("/api/waitlist", function(req, res) {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body-parser middleware
   var newcharacter = req.body;
